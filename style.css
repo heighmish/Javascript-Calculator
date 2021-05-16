@@ -5,7 +5,7 @@
 .calculatorContainer {
     background-color: #1a1a2e;
     min-width: 500px;
-    min-height: 700px;
+    min-height: 650px;
     width: 550px;
     height: 650px;
     position: fixed; /* or absolute */
@@ -27,11 +27,22 @@ h1 {
 .displayScreenStyle {
     background: #0f3460;
     display: flex;
-    flex: 1;
+    flex: .8;
     border: 2px;
     border-radius: 5px;
     border-style: solid;
     margin: 10px;
+}
+
+.displayTextStyle {
+    
+    height: 100%;
+    width: 100%;
+    font-size: 80px;
+    margin: 0px;
+    text-align: end;
+    color: rgb(185, 184, 182);
+    
 }
 
 .buttonContainerStyle {
@@ -48,11 +59,11 @@ h1 {
 .topContainerStyle {
     display: grid;
     grid-template-columns: .75fr 1fr 1fr 1fr;
-    flex: .75;
+    flex: .65;
     margin: 10px;
     padding-right: 5px;
     padding-left: 5px;
-    grid-gap: 10px;
+    grid-gap: 15px;
 }
 
 .bottomContainerStyle {
@@ -69,11 +80,11 @@ h1 {
 
 .rightOperationsContainerStyle {
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     flex: 1;
     margin-left: 10px;
     padding-top: 5px;
-    padding-bottom: 5px;
+    padding-bottom: 5.5px;
     padding-right: 5px;
 }
 
@@ -98,11 +109,51 @@ h1 {
 }
 
 .numberButtonStyle {
-    background-color: darkgrey;
+    background-color: rgba(169, 169, 169, 0.452);
     margin: 2px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
 }
 
-.largeNumberStyle {
-    background-color: darkgrey;
+.numberButtonStyle:hover {
+    background-color: rgba(169, 169, 169, 0.239);
+}
+
+.numberButtonStyle:active {
+    background-color: rgba(169, 169, 169, 0.164);
+}
+
+.nonNumberButtonStyle {
     margin: 2px;
+    background-color: #e94560;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.nonNumberButtonStyle:hover {
+    background-color: #e9456088;
+}
+
+.nonNumberButtonStyle:active {
+    background-color: #e945604f;
+}
+.operationButtonStyle {
+    margin: 2px;
+    background-color: #e94560;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.operationButtonStyle:hover {
+    background-color: #e9456088;
+}
+
+.operationButtonStyle:active {
+    background-color: #e945604f;
 }
