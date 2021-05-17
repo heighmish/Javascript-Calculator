@@ -1,76 +1,58 @@
-let displayText = "0";
-const displayTextElementId = document.getElementById("displayTextId");
+let currentNumber = "0";
+let previousNumber = "";
+let operator = "";
 
-window.addEventListener("load", () => {
-    updateDisplayNumber(displayText);
-})
-
+const displayScreen = document.getElementById("displayTextId");
+const clearButton = document.getElementById("clearButton");
+const backSpaceButton = document.getElementById("backSpaceButton");
 const numberButtons = document.querySelectorAll(".numberButtonStyle");
+const operatorButtons = document.querySelectorAll(".operationButtonStyle");
 
-numberButtons.forEach(item => {
-    item.addEventListener("click", () => {
-        let num = (item.id.toString()).slice(-1);
-        updateDisplayNumber(num);
-    })
+//set display to 0 on page load
+window.addEventListener("load", () => {
+    updateDisplay();
 })
 
-const updateDisplayNumber = (number) => {
-    if (displayText.length === 12) {
-        //pass
-    }
-    else if (displayText == "0") {
-        displayText = number;
-    } else {
-        displayText += number;
-    }
-    updateDisplay(displayText);
+const updateDisplay = () => {
+    displayScreen.innerText = currentNumber;
 }
 
-const updateDisplay = (number) => {
-    displayTextElementId.innerHTML = number;
+const appendNumber = (number) => {
+    if (number === "." && currentNumber.includes(".")) {
+        return ;
+    } else if (currentNumber === "0" && number  === ".") {
+        //
+    } else if (currentNumber === "0") {
+        currentNumber = "";
+    }
+    currentNumber += number;
+    updateDisplay();
 }
 
-const clearButton  = document.getElementById("clearButton");
+//
+const clear = () => {
+    currentNumber = "0";
+    previousNumber = "";
+    operator = "";
+}
+
+//clear all button
 clearButton.addEventListener("click", () => {
-    displayText = "0";
-    updateDisplay(displayText);
+    clear();
+    updateDisplay();
 })
 
+//remove last digit from string
+backSpaceButton.addEventListener("click", () => {
+    //remove last character 
+    currentNumber = currentNumber.slice(0, -1);
+    updateDisplay();
+})
 
-let prevNum = null;
-let operation = null;
-const operationButtons = document.querySelectorAll(".operationButtonStyle");
-operationButtons.forEach(item => {
-    item.addEventListener("click", () => {
-        operation = (item.id.toString())[0];
-        
+numberButtons.forEach(button =>
+    button.addEventListener("click", event => {
+        const num = event.target.innerText;
+        appendNumber(num);
     })
-})
+)
 
-
-
-
-const operate = (operation, num1, num2) => {
-    let finalNumber;
-    num1 = parseInt(num1);
-    num2 = parseInt(num2);
-    switch (operation) {
-        case "+":
-            finalNumber = num1 + num2;
-            break;
-        case "-":
-            finalNumber = num1 - num2;
-            break;
-        case "*":
-            finalNumber = num1 * num2;
-            break;
-        case "/":
-            finalNumber = num1/num2;
-            break;
-        case "=":
-            finalNumber = num2;
-    }
-    
-    console.log(finalNumber);
-    updateDisplay(String(finalNumber));
-}
