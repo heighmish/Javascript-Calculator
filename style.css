@@ -6,7 +6,7 @@
     background-color: #1a1a2e;
     min-width: 500px;
     min-height: 650px;
-    width: 550px;
+    width: 500px;
     height: 650px;
     position: fixed; /* or absolute */
     top: 50%;
@@ -24,6 +24,10 @@ h1 {
     font-size: 60px;
 }
 
+body {
+    background-color: #a9a9a9;
+}
+
 .displayScreenStyle {
     background: #0f3460;
     display: flex;
@@ -38,11 +42,11 @@ h1 {
     
     height: 100%;
     width: 100%;
-    font-size: 80px;
+    font-size: 5vw;
     margin: 0px;
     text-align: end;
     color: rgb(185, 184, 182);
-    
+    overflow: auto;
 }
 
 .buttonContainerStyle {
