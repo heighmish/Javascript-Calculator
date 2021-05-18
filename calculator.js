@@ -117,6 +117,7 @@ const calculate = () => {
 }
 
 
+
 //keyboard support
 document.addEventListener("keydown", event => {
     const key = event.key;
